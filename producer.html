@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <title> Producer Page </title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="producer.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,11 @@
 
 
   <!--Picture profile-->
-  <div class="box3"><img class="ellipse" src="img/ellipse.jpg" /></div>
+  <a href="profileUS.html">
+    <div class="box3">
+      <img class="ellipse" src="img/ellipse.png"/>
+    </div>
+  </a>
 
   <!--Select text-->
   <div class="note" style="color: black; font-size: 16px; font-family: 'inter-regular', Helvetica;">
@@ -36,18 +41,18 @@
   </div>
 
   <!--Select time-->
-  <label3 for="meeting-time">Start time:</label3>
+  <label3 for="startTime">Start time:</label3>
 
-  <input type="datetime-local" id="meeting-time" name="meeting-time" value="2023-06-12T19:30" />
+  <input type="datetime-local" id="start-time" name="meeting-time" value="2023-06-12T19:30" />
 
-  <label4 for="meeting-time">End time:</label4>
+  <label4 for="endTime">End time:</label4>
 
-  <input type="datetime-local" id="meeting-time" name="meeting-time" value="2023-06-12T19:30" />
+  <input type="datetime-local" id="end-time" name="meeting-time" value="2023-06-12T19:30" />
 
   <div class="divider"></div>
 
   <!-- Submit button positioned at the bottom right corner -->
-  <form action="submit_handler.php" method="post">
+  <form action="producer2.html" method="post">
 
     <button type="submit" id="submit-button">Next</button>
 
@@ -64,49 +69,56 @@
               <th colspan="5">Today's Schedule</th>
             </tr>
             <tr>
-              <th>Event</th>
+              <th>Shows</th>
               <th>Start Time</th>
               <th>End Time</th>
-              <th>Genre</th>
+              <th>Genres</th>
               <th>DJ</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Tuesda's Special</td>
-              <td>2pm</td>
+              <td>Sabrina's Special</td>
+              <td>1pm</td>
               <td>3pm</td>
-              <td>Ambient Acoustic</td>
+              <td>Ambient Mix</td>
               <td><img src="img/sabrina.png" class="small-image"></td>
 
             </tr>
             <tr>
-              <td>Tuesda's Special</td>
+              <td>Jason's Garden</td>
               <td>2pm</td>
               <td>3pm</td>
-              <td>Ambient Acoustic</td>
-              <td><img src="img/sabrina.png" class="small-image"></td>
+              <td>Ambient Dreamscapes</td>
+              <td><img src="img/jason.png" class="small-image"></td>
             </tr>
             <tr>
-              <td>Tuesda's Special</td>
+              <td>Unwind with Grant</td>
               <td>2pm</td>
               <td>3pm</td>
-              <td>Ambient Acoustic</td>
-              <td><img src="img/sabrina.png" class="small-image"></td>
+              <td>Ambient Meditation</td>
+              <td><img src="img/grant.png" class="small-image"></td>
             </tr>
             <tr>
-              <td>Tuesda's Special</td>
+              <td>Energize with Richie</td>
               <td>2pm</td>
               <td>3pm</td>
-              <td>Ambient Acoustic</td>
-              <td><img src="img/sabrina.png" class="small-image"></td>
+              <td>Deep Listening</td>
+              <td><img src="img/richie.png" class="small-image"></td>
             </tr>
             <tr>
-              <td>Tuesda's Special</td>
+              <td>Helena's Melodies</td>
               <td>2pm</td>
               <td>3pm</td>
-              <td>Ambient Acoustic</td>
-              <td><img src="img/sabrina.png" class="small-image"></td>
+              <td>Ambient Soul</td>
+              <td><img src="img/helena.png" class="small-image"></td>
+            </tr>
+            <tr>
+              <td> Forest Breathing </td>
+              <td>2pm</td>
+              <td>3pm</td>
+              <td>Ambient Relaxation</td>
+              <td><img src="img/erick.png" class="small-image"></td>
             </tr>
           </tbody>
         </table>
@@ -129,51 +141,57 @@
                 <figcaption>Sabrina Colton</figcaption>
               </th>
               <th>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption>Sabrina Colton</figcaption>
+                <img src="img/jason.png" alt="Jason">
+                <figcaption>Jason Press</figcaption>
               </th>
               <th>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption>Sabrina Colton</figcaption>
+                <img src="img/grant.png" alt="Grant">
+                <figcaption>Grant Xhaka</figcaption>
               </th>
               <th>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption>Sabrina Colton</figcaption>
+                <img src="img/richie.png" alt="Richie">
+                <figcaption>Richie Pearson</figcaption>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td> <button onclick="showDialog()">Select</button></td>
-              <td> <button onclick="showDialog()">Select</button></td>
-              <td> <button onclick="showDialog()">Select</button> </td>
-              <td> <button onclick="showDialog()">Select</button> </td>
+              <td>
+                <center> <button onclick="selectDJ('Sabrina Colton')">Select</button></center>
+              </td>
+              <td>
+                <center> <button onclick="selectDJ('Jason Press')">Select</button></center>
+              </td>
+              <td>
+                <center> <button onclick="selectDJ('Grant Xhaka')">Select</button></center>
+              </td>
+              <td>
+                <center> <button onclick="selectDJ('Richie Pearson')">Select</button></center>
+              </td>
             </tr>
 
             <tr>
               <td>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption><strong>Sabrina Colton</strong> </figcaption>
+                <center> <img src="img/helena.png" alt="helena"></center>
+                <figcaption><strong>Helena Celo</strong> </figcaption>
               </td>
               <td>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption><strong>Sabrina Colton</strong> </figcaption>
+              <center><img src="img/erick.png" alt="Erick"></center>
+                <figcaption><strong>Erick Dalton</strong> </figcaption>
               </td>
               <td>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption><strong>Sabrina Colton</strong> </figcaption>
+
               </td>
               <td>
-                <img src="img/sabrina.png" alt="Sabrina">
-                <figcaption><strong>Sabrina Colton</strong> </figcaption>
+
               </td>
 
             </tr>
             <tr>
-              <td> <button onclick="showDialog()">Select</button></td>
-              <td> <button onclick="showDialog()">Select</button></td>
-              <td> <button onclick="showDialog()">Select</button> </td>
-              <td> <button onclick="showDialog()">Select</button> </td>
+              <td><center> <button onclick="selectDJ('Helena Celo')">Select</button></center></td>
+              <td> <center> <button onclick="selectDJ('Erick Dalton')">Select</button></center></td>
+              <td> </td>
+              <td> </td>
             </tr>
 
 
@@ -181,32 +199,39 @@
         </table>
 
         <script>
-          function showDialog() {
-            alert("DJ selected");
+          function selectDJ(djId) {
+            // Save the selected DJ data to localStorage or any other storage mechanism
+            localStorage.setItem('selectedDJ', djId);
+
+            // Alert user which user was selected
+            alert(djId + " was selected");
           }
         </script>
       </div>
     </div>
   </div>
 
-<div class="grid-container">
-  <div class="grid-item">
-    <h2>Users</h2>
-    <p>1000</p>
+  <!--Grid of stats-->
+  <div class="grid-container">
+    <div class="grid-item">
+      <h2>Users</h2>
+      <p>1000</p>
+    </div>
+    <div class="grid-item">
+      <h2>Revenue</h2>
+      <p>$10,000</p>
+    </div>
+    <div class="grid-item">
+      <h2>Orders</h2>
+      <p>500</p>
+    </div>
+    <div class="grid-item">
+      <h2>Conversion Rate</h2>
+      <p>50%</p>
+    </div>
   </div>
-  <div class="grid-item">
-    <h2>Revenue</h2>
-    <p>$10,000</p>
-  </div>
-  <div class="grid-item">
-    <h2>Orders</h2>
-    <p>500</p>
-  </div>
-  <div class="grid-item">
-    <h2>Conversion Rate</h2>
-    <p>50%</p>
-  </div>
-</div>
+
+  <button class="buttonPro" onclick="window.location.href='profileDJ.html'">See DJs Profiles</button>
 
 </body>
 
