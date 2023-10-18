@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="signup.css">
+  <script src="signup.js"></script>
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <div class="form-container">
+    <form action="submit.php" method="POST" id="signupform">
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" required><br><br>
+
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" required><br><br>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <label for="genre">Genre of Ambient Music:</label>
+      <select id="genre" name="genre">
+        <option value="chillout">Chillout</option>
+        <option value="downtempo">Downtempo</option>
+        <option value="ambient-house">Ambient House</option>
+        <option value="dark-ambient">Dark Ambient</option>
+        <option value="space-ambient">Space Ambient</option>
+        <option value="other">Other</option>
+      </select><br><br>
+
+      <input type="submit" value="Sign Up" id="signup-button">
+    </form>
+  </div>
+</body>
+</html>
