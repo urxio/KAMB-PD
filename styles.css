@@ -314,3 +314,20 @@ label4 {
   font-family: "inter-regular", Helvetica;
 }
 
+.buttonPro {
+  position: fixed;
+  bottom: 10px; 
+  right: 90px;
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; /* Button padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+.buttonPro:hover {
+  background-color: #45a049;
+}
+
