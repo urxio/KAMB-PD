@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title> Producer Page </title>
     <link rel="stylesheet" type="text/css" href="styles2.css">
+    <script src="producer2.js"></script>
 </head>
 
 <body>
@@ -135,7 +136,7 @@
     <!--Playlist-->
     <div class="box5">
         <img class="rectangle2" src="img/rectangle-4.svg" />
-        <div class="text-wrapper2">Sabrina C. Playlist</div>
+        <div class="text-wrapper2">Current Playlist</div>
         <div class="container2">
             <table class="fl-table3">
                 <thead>
@@ -236,9 +237,9 @@
 
     <!--Audio Player-->
     <div class="audio">
-    <audio controls>
-        <source src="audio/rebirth.m4a" type="audio/mpeg">
-      </audio>
+        <audio controls>
+            <source src="audio/rebirth.m4a" type="audio/mpeg">
+        </audio>
     </div>
 
     <!--Background gray box-->
@@ -247,18 +248,17 @@
     </div>
 
     <!--DJ's-->
-    <div class="box7">
-        <div class="group">
-            <img class="ellipse" src="img/sabrina.png" />
-            <div class="text-wrapper">Sabrina Colton</div>
-
+        <div class="ellipse">
+            <img id="dj-image" src="" alt="DJ Image">
         </div>
-    </div>
+        <div class="text-wrapper">
+            <p id="dj-name"></p>
+        </div>
+    
 
     <!--Search box-->
     <div class="box8">
-        <div class="text-wrapper">search for songs</div>
-        <input type="text" id="input-field" name="input-field">
+        <input type="text" id="input-field" placeholder="Search for songs" name="input-field">
         <img class="searchIcon" src="img/search icon.png" />
     </div>
 
@@ -277,15 +277,15 @@
                 <tr>
                     <td></td>
 
-                    <tr>
-                        <td>
-                          <ul>
+                <tr>
+                    <td>
+                        <ul>
                             <li>Calm sunset</li>
                             <li>Memories Lost</li>
                             <li>Focus</li>
-                          </ul>
-                        </td>
-                      </tr>
+                        </ul>
+                    </td>
+                </tr>
             </tbody>
         </table>
 
@@ -298,17 +298,21 @@
     <!--Date info-->
     <div class="box10">
         <div class="group2">
-            <div class=rectangle3></div>
-            <div class="text-wrapper3">Date: 9/2/23</div>
-            <div class=rectangle4></div>
-            <div class="text-wrapper4">07:00-09:00am</div>
+            <div class="rectangle3" id="date-display"> </div>
+            <div class="text-wrapper3">Date: </div>
+            <div class="rectangle4" id="time-display"></div>
+            <div class="text-wrapper4">Time: </div>
         </div>
     </div>
 
     <!--Back button-->
     <div class="box11">
         <div class="back-button">
-            <button>Back</button>
+            <form action="producer.html" method="post">
+
+                <button type="submit" id="submit-button">Back</button>
+
+            </form>
         </div>
         <div class="save-button">
             <button>Save</button>
