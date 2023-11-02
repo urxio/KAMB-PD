@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DJ Profiles</title>
+  <link rel="stylesheet" href="profileDJ.css">
+  <script src="profileDJ.js"></script>
+</head>
+
+<body>
+  <div class="profile">
+    <img src="img/sabrina.png" alt="Sabrina Colton">
+    <h2 id="dj1-name"></h2>
+    <p>Years of Experience: <span id="dj1-yearsExperience"></span></p>
+    <p>Show Name: <span id="dj1-showName"></span></p>
+    <p>Genres: <span id="dj1-genre"></span></p>
+    <p>Back Story: Sabrina Colton fell in love with the ambient music scene while studying under the stars in the desert. She crafts mesmerizing soundscapes that transport her listeners to otherworldly realms.</p>
+  </div>
+
+  <div class="profile">
+    <img src="img/jason.png" alt="Jessica Press">
+    <h2 id="dj2-name"></h2>
+    <p>Years of Experience: <span id="dj2-yearsExperience"></span></p>
+    <p>Show Name: <span id="dj2-showName"></span></p>
+    <p>Genres: <span id="dj2-genre"></span></p>
+    <p>Back Story: Jason Press, the serene soul, weaves a tapestry of ambient sounds. His music is a sonic journey through her dreams and the hidden stories of nature.</p>
+    <p>Availability: <span id="dj2-availability"></span></p>
+  </div>
+
+  <div class="profile">
+    <img src="img/grant.png" alt="Grant Xhaka">
+    <h2 id="dj3-name"></h2>
+    <p>Years of Experience: <span id="dj3-yearsExperience"></span></p>
+    <p>Show Name: <span id="dj3-showName"></span></p>
+    <p>Genres: <span id="dj3-genre"></span></p>
+    <p>Back Story: Grant Xhaka, the master of atmospheres, has an uncanny ability to blend ambient sounds into an ethereal experience. His music is like stargazing on a clear, tranquil night.</p>
+  </div>
+
+  <div class="profile">
+    <img src="img/richie.png" alt="Richie Pearson">
+    <h2 id="dj4-name"></h2>
+    <p>Years of Experience: <span id="dj4-yearsExperience"></span></p>
+    <p>Show Name: <span id="dj4-showName"></span></p>
+    <p>Genres: <span id="dj4-genre"></span></p>
+    <p>Back Story: Richie Pearson, the maestro of ambient grooves, has a unique style that takes you on a cosmic adventure through time and space. His music is the soundtrack to your interstellar journey.</p>
+  </div>
+
+  <div class="profile">
+    <img src="img/helena.png" alt="Helena Cela">
+    <h2 id="dj5-name"></h2>
+    <p>Years of Experience: <span id="dj5-yearsExperience"></span></p>
+    <p>Show Name: <span id="dj5-showName"></span></p>
+    <p>Genres: <span id="dj5-genre"></span></p>
+    <p>Back Story: Helena Cela, the enchantress of ambient melodies, uses her music to invoke the spirit of the natural world. Her sonic landscapes are inspired by the serene beauty of forests and oceans.</p>
+  </div>
+
+  <div class="profile">
+    <img src="img/erick.png" alt="Erick Dalton">
+    <h2 id="dj6-name"></h2>
+    <p>Years of Experience: <span id="dj6-yearsExperience"></span></p>
+    <p>Show Name: <span id="dj6-showName"></span></p>
+    <p>Genres: <span id="dj6-genre"></span></p>
+    <p>Back Story: Erick Dalton, the sonic sorcerer, creates ambient magic that transcends reality. His music is a portal to other dimensions, where time is fluid and the universe is boundless.</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    let djs = [
+        {
+            name: "Sabrina Colton",
+            yearsExperience: 2,
+            showName: "Sabrina's Special",
+            genre: "Ambient Mix",
+        },
+        {
+            name: "Jason Press",
+            yearsExperience: 4,
+            showName: "Jason's Garden",
+            genre: "Ambient Dreamscapes",
+        },
+        {
+            name: "Grant Xhaka",
+            yearsExperience: 2,
+            showName: "Unwind with Grant",
+            genre: "Ambient Meditation",
+        },
+        {
+            name: "Richie Pearson",
+            yearsExperience: 5,
+            showName: "Energixe with Richie",
+            genre: "Deep Listening",
+        },
+        {
+            name: "Helena Celo",
+            yearsExperience: 3,
+            showName: "Helena's Melodies",
+            genre: "Ambient Soul",
+        },
+        {
+            name: "Erick Dalton",
+            yearsExperience: 4,
+            showName: "Forest Breathing",
+            genre: "Ambient Relaxation",
+        }
+    ];
+
+    // Find the DJ to update
+    let djToUpdate = djs[1];
+
+    // Update existing properties
+    djToUpdate.yearsExperience = 5;
+
+    // Add a new property
+    djToUpdate.availability = "Mon-Fri";
+
+    //updating all DJs info
+    for (let i = 0; i < djs.length; i++) {
+        updateDJInfo(djs[i], "dj" + (i + 1));
+    }
+});
+
+function updateDJInfo(dj, idPrefix) {
+    document.getElementById(idPrefix + "-name").textContent = dj.name;
+    document.getElementById(idPrefix + "-yearsExperience").textContent = dj.yearsExperience;
+    document.getElementById(idPrefix + "-showName").textContent = dj.showName;
+    document.getElementById(idPrefix + "-genre").textContent = dj.genre;
+
+    if (dj.availability) {
+        document.getElementById(idPrefix + "-availability").textContent = dj.availability;
+    }
+}
+  </script>
+</body>
+</html>
