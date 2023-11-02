@@ -29,7 +29,7 @@ app.get('/profileUS', (req, res) => {
     name: 'John Doe',
   };
 
-  // Render the 'pages/profileUS' view and pass the data as an object
+  // Render the 'pages/profileUS' view and pass the data
   res.render('pages/profileUS', { userData });
 });
 
