@@ -28,7 +28,7 @@
   <!--Picture profile-->
   <a href="/profileUS">
     <div class="box3">
-      <img class="ellipse" src="img/ellipse.png"/>
+      <img class="ellipse" src="img/ellipse.png" />
     </div>
   </a>
 
@@ -40,27 +40,29 @@
   </div>
 
   <!--Select time-->
-  <label3 for="startTime">Start time:</label3>
 
-  <input type="datetime-local" id="start-time" name="meeting-time" value="2023-06-12T19:30" />
 
-  <label4 for="endTime">End time:</label4>
-
-  <input type="datetime-local" id="end-time" name="meeting-time" value="2023-06-12T19:30" />
-
-  <div class="divider"></div>
 
   <!-- Submit button positioned at the bottom right corner -->
   <form action="/producer2" method="post">
+    <input type="hidden" id="dj-name" name="djName">
+    <label3 for="startTime">Start time:</label3>
+    <input type="datetime-local" id="start-time" name="startTime" value="2023-06-12T19:30" />
+    <label4 for="endTime">End time:</label4>
+    <input type="datetime-local" id="end-time" name="endTime" value="2023-06-12T19:30" />
     <button type="submit" id="submit-button">Next</button>
   </form>
 
+  <button id="clear-table">Delete Schedule</button>
+  <div class="divider"></div>
+
+  
 
   <!--Scrollable table of events-->
   <div class="flex-container">
     <div class="flex-column">
       <div class="table-wrapper">
-        <table class="fl-table">
+        <table id="schedule-table" table class="fl-table">
           <thead>
             <tr>
               <th colspan="5">Today's Schedule</th>
@@ -74,54 +76,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Sabrina's Special</td>
-              <td>1pm</td>
-              <td>3pm</td>
-              <td>Ambient Mix</td>
-              <td><img src="img/sabrina.png" class="small-image"></td>
 
-            </tr>
-            <tr>
-              <td>Jason's Garden</td>
-              <td>2pm</td>
-              <td>3pm</td>
-              <td>Ambient Dreamscapes</td>
-              <td><img src="img/jason.png" class="small-image"></td>
-            </tr>
-            <tr>
-              <td>Unwind with Grant</td>
-              <td>2pm</td>
-              <td>3pm</td>
-              <td>Ambient Meditation</td>
-              <td><img src="img/grant.png" class="small-image"></td>
-            </tr>
-            <tr>
-              <td>Energize with Richie</td>
-              <td>2pm</td>
-              <td>3pm</td>
-              <td>Deep Listening</td>
-              <td><img src="img/richie.png" class="small-image"></td>
-            </tr>
-            <tr>
-              <td>Helena's Melodies</td>
-              <td>2pm</td>
-              <td>3pm</td>
-              <td>Ambient Soul</td>
-              <td><img src="img/helena.png" class="small-image"></td>
-            </tr>
-            <tr>
-              <td> Forest Breathing </td>
-              <td>2pm</td>
-              <td>3pm</td>
-              <td>Ambient Relaxation</td>
-              <td><img src="img/erick.png" class="small-image"></td>
-            </tr>
           </tbody>
         </table>
       </div>
     </div>
-
 
     <!--Scrollable list of DJ's-->
 
@@ -173,7 +132,7 @@
                 <figcaption><strong>Helena Celo</strong> </figcaption>
               </td>
               <td>
-              <center><img src="img/erick.png" alt="Erick"></center>
+                <center><img src="img/erick.png" alt="Erick"></center>
                 <figcaption><strong>Erick Dalton</strong> </figcaption>
               </td>
               <td>
@@ -185,8 +144,12 @@
 
             </tr>
             <tr>
-              <td><center> <button onclick="selectDJ('Helena Celo')">Select</button></center></td>
-              <td> <center> <button onclick="selectDJ('Erick Dalton')">Select</button></center></td>
+              <td>
+                <center> <button onclick="selectDJ('Helena Celo')">Select</button></center>
+              </td>
+              <td>
+                <center> <button onclick="selectDJ('Erick Dalton')">Select</button></center>
+              </td>
               <td> </td>
               <td> </td>
             </tr>
@@ -200,6 +163,9 @@
             // Save the selected DJ data to localStorage or any other storage mechanism
             localStorage.setItem('selectedDJ', djId);
 
+            // Update the value of the hidden dj-name input
+            document.getElementById('dj-name').value = djId;
+
             // Alert user which user was selected
             alert(djId + " was selected");
           }
@@ -207,6 +173,8 @@
       </div>
     </div>
   </div>
+
+  
 
   <!--Grid of stats-->
   <div class="grid-container">
@@ -228,19 +196,162 @@
     </div>
   </div>
 
+
+
   <button class="buttonPro" onclick="window.location.href='/profileDJ'">See DJs Profiles</button>
 
+ 
+
   <script>
-    window.onload = function() {
-      document.getElementById('submit-button').addEventListener('click', function() {
+    // Define newShows in the global scope
+    var newShows = [];
+
+    window.onload = function () {
+      // Load existing shows from localStorage
+      var existingShows = JSON.parse(localStorage.getItem('shows')) || [];
+
+      document.getElementById('submit-button').addEventListener('click', function () {
         var startTime = document.getElementById('start-time').value;
         var endTime = document.getElementById('end-time').value;
-  
+
         localStorage.setItem('startTime', startTime);
         localStorage.setItem('endTime', endTime);
       });
+
+      // Extract the time from the start time
+      var savedStartTime = localStorage.getItem('startTime');
+      var savedEndTime = localStorage.getItem('endTime');
+
+      //convert to 12hr
+      var startTime12h = convertTo12HourFormat(savedStartTime.split('T')[1]);
+      var endTime12h = convertTo12HourFormat(savedEndTime.split('T')[1]);
+
+      var djId = localStorage.getItem('selectedDJ');
+
+      if (djId === 'Sabrina Colton') {
+        newShows1 = [
+          {
+            name: 'Sabrina Special',
+            startTime: startTime12h,
+            endTime: endTime12h,
+            genres: 'Ambient Mix',
+            djImage: 'img/sabrina.png'
+          },
+        ];
+        existingShows.push(...newShows1);
+      } else if (djId === 'Jason Press') {
+        newShows2 = [
+          {
+            name: 'Jason Garden',
+            startTime: startTime12h,
+            endTime: endTime12h,
+            genres: 'Ambient Dreamscapes',
+            djImage: 'img/jason.png'
+          },
+        ];
+        existingShows.push(...newShows2);
+      } else if (djId === 'Grant Xhaka') {
+        newShows3 = [
+          {
+            name: 'Unwind with Grant',
+            startTime: startTime12h,
+            endTime: endTime12h,
+            genres: 'Ambient Meditation',
+            djImage: 'img/grant.png'
+          },
+        ];
+        existingShows.push(...newShows3);
+      } else if (djId === 'Richie Pearson') {
+        newShows4 = [
+          {
+            name: 'Energize with Richie',
+            startTime: startTime12h,
+            endTime: endTime12h,
+            genres: 'Deep Listening',
+            djImage: 'img/richie.png'
+          },
+        ];
+        existingShows.push(...newShows4);
+      } else if (djId === 'Helena Celo') {
+        newShows5 = [
+          {
+            name: 'Helena Melodies',
+            startTime: startTime12h,
+            endTime: endTime12h,
+            genres: 'Ambient Soul',
+            djImage: 'img/helena.png'
+          },
+        ];
+        existingShows.push(...newShows5);
+      } else if (djId === 'Erick Dalton') {
+        newShows6 = [
+          {
+            name: 'Breathing Forest',
+            startTime: startTime12h,
+            endTime: endTime12h,
+            genres: 'Ambient Relaxation',
+            djImage: 'img/erick.png'
+          },
+        ];
+        existingShows.push(...newShows6);
+      }
+
+      // Save the updated shows to localStorage
+      localStorage.setItem('shows', JSON.stringify(existingShows));
+
+      // Update the table with the existing shows
+      updateTable(existingShows);
+
+      document.getElementById('clear-table').addEventListener('click', function () {
+        // Clear the table body
+        var tableBody = document.getElementById('schedule-table').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = '';
+
+        // Clear the shows from localStorage
+        localStorage.removeItem('shows');
+      });
     };
+
+    function convertTo12HourFormat(time) {
+      var hour = parseInt(time.split(':')[0]);
+      var minute = time.split(':')[1];
+      var period = hour >= 12 ? 'PM' : 'AM';
+
+      // Convert hour to 12-hour format
+      hour = hour % 12;
+      if (hour !== 0) {
+        hour = hour;
+      } else {
+        hour = 12;
+      } // Handle midnight (0) as 12
+
+      return hour + ':' + minute + ' ' + period;
+    }
+
+    function updateTable(shows) {
+      var tableBody = document.getElementById('schedule-table').getElementsByTagName('tbody')[0];
+      var existingRowCount = tableBody.getElementsByTagName('tr').length;
+
+      // If there are fewer rows than the shows data, add new rows
+      if (existingRowCount < shows.length) {
+        for (var i = existingRowCount; i < shows.length; i++) {
+          var row = document.createElement('tr');
+          row.innerHTML = `
+        <td>${shows[i].name}</td>
+        <td>${shows[i].startTime}</td>
+        <td>${shows[i].endTime}</td>
+        <td>${shows[i].genres}</td>
+        <td><img src="${shows[i].djImage}" class="small-image"></td>
+      `;
+          tableBody.appendChild(row);
+        }
+      }
+    }
+
+
+
   </script>
-  
+
 </body>
+
 </html>
