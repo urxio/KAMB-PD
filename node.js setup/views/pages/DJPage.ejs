@@ -1,0 +1,375 @@
+<!DOCTYPE html< />
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title> DJ Page</title>
+	<link rel="stylesheet" type="text/css" href="/djpage.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+	<!--Rectangular shape at top of page-->
+	<div class="box">
+		<div class="rectangle"></div>
+	</div>
+
+	<!--logo-->
+	<div class="box2">
+		<div class="group">
+			<div class="overlap-group">
+				<div class="text-wrapper">K</div>
+			</div>
+			<div class="div">AMB</div>
+		</div>
+	</div>
+
+
+	<!--Picture profile-->
+	<div class="box3"><img class="ellipse" src="img/ellipse.png" /></div>
+
+	<!--Song list-->
+	<div class="box4">
+		<img class="rectangle1" src="img/rectangle-4.svg" />
+		<div class="text-wrapper">Previous Playlists Songs </div>
+		<div class="container">
+			<table class="fl-table2">
+				<thead>
+					<tr>
+						<th> </th>
+						<th> </th>
+						<th> </th>
+					</tr>
+				</thead>
+				<% allSongs.forEach(function(song) { %>
+					<tr>
+						<td><img src="img/song.png" class="small-image"></td>
+						<td class="song-title"><strong>
+								<%= song.title %>
+							</strong></td>
+						<td> <button class="add-to-playlist"> Add to Playlist </button></td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td class="song-artist">
+							<%= song.artist %>
+						</td>
+					</tr>
+					<% }); %>
+						</tbody>
+			</table>
+
+		</div>
+
+	</div>
+
+	<!--Playlist-->
+	<div class="box5">
+		<img class="rectangle2" src="img/rectangle-4.svg" />
+		<div class="text-wrapper2">Current Playlist</div>
+		<div class="container2">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<table class="fl-table3">
+							<tr>
+								<td colspan="3" class="timeframe">Timeslot: 2-3pm</td>
+							</tr>
+							<% timeslot1Songs.forEach(function(song) { %>
+								<tr>
+									<td><img src="img/song.png" class="small-image"></td>
+									<td class="song-title"><strong>
+											<%= song.title %>
+										</strong></td>
+									<td><button class="removeSong">remove</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="song-artist">
+										<%= song.artist %>
+									</td>
+								</tr>
+								<% }); %>
+						</table>
+					</div>
+					<div class="carousel-item">
+						<table class="fl-table3">
+							<tr>
+								<td colspan="3" class="timeframe">Timeslot: 5-6pm</td>
+							</tr>
+							<% timeslot2Songs.forEach(function(song) { %>
+								<tr>
+									<td><img src="img/song.png" class="small-image"></td>
+									<td class="song-title"><strong>
+											<%= song.title %>
+										</strong></td>
+									<td><button class="removeSong">remove</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="song-artist">
+										<%= song.artist %>
+									</td>
+								</tr>
+								<% }); %>
+						</table>
+					</div>
+				</div>
+				<!-- control -->
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!--Background gray box-->
+	<div class="box6">
+		<div class="rectangle"></div>
+	</div>
+
+	<!--DJ's-->
+	<div class="ellipse">
+		<img id="dj-image" src="" alt="DJ Image">
+	</div>
+	<div class="text-wrapper">
+		<p id="dj-name"></p>
+	</div>
+
+
+	<!--Search box-->
+	<div class="box8">
+		<input type="text" id="input-field" placeholder="Search for songs" name="input-field">
+		<img class="searchIcon" src="img/search icon.png" />
+	</div>
+
+	</div>
+
+	<!--Search area-->
+	<div class="flex-container">
+
+		<table class="fl-table">
+
+			<tbody>
+				<tr>
+					<td><strong>Recent search</strong></td>
+
+				</tr>
+				<tr>
+					<td></td>
+
+				<tr>
+					<td>
+						<ul>
+
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+
+	<!--search box-->
+	<div class="box9"><img class="rectangle" src="img/rectangle-4.svg" /></div>
+
+	<!--Date info-->
+	<div class="box10">
+		<div class="group2">
+			<div class="rectangle3" id="date-display"> </div>
+			<div class="text-wrapper3">Date: 11/30/23</div>
+			<div class="rectangle4" id="time-display"></div>
+			<div class="text-wrapper4">Work Time: 4h </div>
+		</div>
+	</div>
+
+
+	<!--Back button-->
+	<div class="box11">
+		<div class="save-button">
+			<form action="/producer2" method="post" onsubmit="return showSuccessAlert()">
+				<input type="hidden" name="djName" id="djName">
+				<input type="hidden" name="startTime" id="startTime">
+				<input type="hidden" name="endTime" id="endTime">
+				<button type="submit">Save</button>
+			</form>
+		</div>
+		<div class="logout-button">
+			<button onclick="location.href='/login'">Logout</button>
+		</div>
+		<script>
+			function showSuccessAlert() {
+				alert('DJ Playlist was successfully updated');
+				return true;
+			}
+		</script>
+	</div>
+
+	<script>
+		window.onload = function () {
+
+			// Retrieve the selected DJ data from localStorage
+			var selectedDJ = localStorage.getItem('selectedDJ');
+
+			// Update the DJ image and name in the HTML
+			var djImageElement = document.getElementById('dj-image');
+			var djNameElement = document.getElementById('dj-name');
+
+			// Set the DJ image source and alt attribute
+			djImageElement.src = 'img/' + selectedDJ.split(' ')[0] + '.png';
+			djImageElement.alt = selectedDJ + ' Image';
+
+			// Set the DJ name
+			djNameElement.textContent = selectedDJ;
+
+			// Set the DJ name in the hidden input field
+			document.getElementById('djName').value = selectedDJ;
+
+			//used for searching
+			document.getElementById('input-field').addEventListener('keyup', function () {
+				var input = this.value.toLowerCase();
+				var songs = document.querySelectorAll('.fl-table2 .song-title');
+				var searchTable = document.querySelector('.fl-table tbody');
+
+				// Clear the search table
+				searchTable.innerHTML = '';
+
+				songs.forEach(function (song) {
+					if (song.textContent.toLowerCase().includes(input)) {
+						// Create a new row and cell for the search table
+						var newRow = document.createElement('tr');
+						var newCell = document.createElement('td');
+
+						// Set the content of the cell
+						newCell.textContent = song.textContent;
+
+						// Append the cell to the new row
+						newRow.appendChild(newCell);
+
+						// Append the new row to the search table
+						searchTable.appendChild(newRow);
+					}
+				});
+			});
+
+			//used to remove song from playlist
+			const removeButtons = document.querySelectorAll('.removeSong');
+			removeButtons.forEach(button => {
+				button.addEventListener('click', function (e) {
+					e.preventDefault();
+					const songRow = this.parentNode.parentNode;
+					const artistRow = songRow.nextElementSibling;
+					songRow.parentNode.removeChild(songRow);
+					artistRow.parentNode.removeChild(artistRow);
+				});
+			});
+
+			//used to add song from prev playlist song to currect playlist
+			const addToPlaylistButtons = document.querySelectorAll('.add-to-playlist');
+
+			// Add a click event listener to each button
+			addToPlaylistButtons.forEach(function (button) {
+				button.addEventListener('click', function (event) {
+					// Prevent the default action
+					event.preventDefault();
+
+					// Get the song data
+					const songRow = this.parentNode.parentNode;
+					const songTitle = songRow.querySelector('.song-title').textContent;
+					const songArtist = songRow.nextElementSibling.querySelector('.song-artist').textContent;
+
+					// Create a new row for the 'fl-table3' table
+					const newRow = document.createElement('tr');
+
+					// Create the cells for the new row
+					const imageCell = document.createElement('td');
+					const titleCell = document.createElement('td');
+					const removeButtonCell = document.createElement('td');
+
+					// Set the content of the cells
+					imageCell.innerHTML = '<img src="img/song.png" class="small-image">';
+					titleCell.innerHTML = '<strong>' + songTitle + '</strong>';
+					removeButtonCell.innerHTML = '<button class="removeSong">remove</button>';
+
+					// Append the cells to the new row
+					newRow.appendChild(imageCell);
+					newRow.appendChild(titleCell);
+					newRow.appendChild(removeButtonCell);
+
+					// Append the new row to the 'fl-table3' table
+					document.querySelector('.fl-table3 tbody').appendChild(newRow);
+
+					// Create a new row for the artist
+					const artistRow = document.createElement('tr');
+					const emptyCell = document.createElement('td');
+					const artistCell = document.createElement('td');
+
+					// Set the content of the artist cell
+					artistCell.textContent = songArtist;
+
+					// Append the cells to the artist row
+					artistRow.appendChild(emptyCell);
+					artistRow.appendChild(artistCell);
+
+					// Append the artist row to the 'fl-table3' table
+					document.querySelector('.fl-table3 tbody').appendChild(artistRow);
+				});
+			});
+
+			//used for searching
+			document.getElementById('input-field').addEventListener('keyup', function () {
+				var input = this.value.toLowerCase();
+				var songs = document.querySelectorAll('.fl-table2 .song-title');
+				var searchTable = document.querySelector('.fl-table tbody');
+
+				// Clear the search table
+				searchTable.innerHTML = '';
+
+				songs.forEach(function (song) {
+					if (song.textContent.toLowerCase().includes(input)) {
+						// Create a new row and cell for the search table
+						var newRow = document.createElement('tr');
+						var newCell = document.createElement('td');
+
+						// Set the content of the cell
+						newCell.textContent = song.textContent;
+
+						// Append the cell to the new row
+						newRow.appendChild(newCell);
+
+						// Append the new row to the search table
+						searchTable.appendChild(newRow);
+					}
+				});
+			});
+
+		};
+
+		function convertTo12HourFormat(time) {
+			var hour = parseInt(time.split(':')[0]);
+			var minute = time.split(':')[1];
+			var period = hour >= 12 ? 'PM' : 'AM';
+
+			// Convert hour to 12-hour format
+			hour = hour % 12;
+			if (hour !== 0) {
+				hour = hour;
+			} else {
+				hour = 12;
+			} // Handle midnight (0) as 12
+
+			return hour + ':' + minute + ' ' + period;
+		}
+	</script>
+
+</body>
+
+</html>
