@@ -1,0 +1,128 @@
+.box {
+    width: 1412px;
+    height: 88px;
+  }
+  
+  .box .rectangle {
+    position: fixed;
+    width: auto;
+    height: 88px;
+    top: 5;
+    left: 10;
+    right: 10;
+    background-color: #e4e4e4;
+    border-radius: 20px;
+  }
+  
+  .box2 {
+    position: relative;
+    width: 146px;
+    height: 52px;
+  }
+  
+  .box2 .group {
+    position: fixed;
+    width: 150px;
+    height: 52px;
+    top: 20;
+    left: 20;
+  }
+  
+  .box2 .overlap-group {
+    position: absolute;
+    width: 62px;
+    height: 52px;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+  }
+  
+  .box2 .text-wrapper {
+    position: absolute;
+    top: 4px;
+    left: 25px;
+    font-family: "Inter-Black", Helvetica;
+    font-weight: 900;
+    color: #fffbfb;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .box2 .div {
+    position: absolute;
+    top: 4px;
+    left: 62px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .box3 {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    z-index: 999; 
+}
+
+.box3 .ellipse {
+    width: 67px;
+    height: 63px;
+    object-fit: cover;
+}
+
+/*Used for the positioning of the logo for dj page*/
+.mainLeftCorner{
+  width: 65px;
+  height:75px;
+  object-fit: cover;
+padding: 15px;
+padding-left: 1px;
+padding-top: 1px;
+padding-bottom: 1px
+
+
+}
+
+figure{
+display: flex;
+align-items:center;
+}
+
+.button:hover{
+	color: green;
+}
+
+.button{
+	color: red;
+}
+
+body{
+	background-color: #FFE4C4;
+}
+
+.box5{
+    position: fixed;
+    width: auto;
+    background-color: #b0bec5;
+    border-radius: 10px;
+}
+
+.box6{
+ position: fixed;
+    width: 150px;
+    background-color: #b0bec5;
+    border-radius: 20px;
+}
+
+.box7{
+position: absolute;
+    width: 150px;
+    height: 100px;
+    background-color: red;
+    border-radius: 20px;
+}
+

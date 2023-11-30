@@ -1,0 +1,345 @@
+
+body {
+  overflow-x: hidden;
+}
+
+.box {
+    width: 1412px;
+    height: 88px;
+  }
+  
+  .box .rectangle {
+    position: fixed;
+    width: auto;
+    height: 88px;
+    top: 5;
+    left: 10;
+    right: 10;
+    background-color: #e4e4e4;
+    border-radius: 20px;
+  }
+  
+  .box2 {
+    position: relative;
+    width: 146px;
+    height: 52px;
+  }
+  
+  .box2 .group {
+    position: fixed;
+    width: 150px;
+    height: 52px;
+    top: 20;
+    left: 20;
+  }
+  
+  .box2 .overlap-group {
+    position: absolute;
+    width: 62px;
+    height: 52px;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+  }
+  
+  .box2 .text-wrapper {
+    position: absolute;
+    top: 4px;
+    left: 25px;
+    font-family: "Inter-Black", Helvetica;
+    font-weight: 900;
+    color: #fffbfb;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .box2 .div {
+    position: absolute;
+    top: 4px;
+    left: 62px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .box3 {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    z-index: 999; 
+}
+
+.box3 .ellipse {
+    width: 67px;
+    height: 63px;
+    object-fit: cover;
+}
+  
+  
+  .box4 {
+    width: 624px;
+    height: 613px;
+  }
+  
+  .box4 .rectangle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 280;
+    left: 100;
+    background-color: #000000;
+    border-radius: 20px;
+  }
+  
+  .box5 {
+    width: 624px;
+    height: 613px;
+  }
+  
+  .box5 .rectangle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 280;
+    right: 100;
+    background-color: #000000;
+    border-radius: 20px;
+  }
+
+  .label {
+    width: 294px;
+    height: 44px;
+  }
+  
+  .label .text-wrapper {
+    position: fixed;
+    top: 135;
+    left: 15;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+
+label3 {
+  display: block;
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+}
+
+input,
+label3 {
+  margin: 0.4rem 0;
+}
+
+label4 {
+  display: block;
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+}
+
+input,
+label4 {
+  margin: 0.4rem 0;
+}
+
+.divider {
+  width: 100%; 
+  height: 2px; 
+  background-color: #000; 
+  margin: 20px 0; 
+}
+
+
+#submit-button {
+  position: fixed;
+  bottom: 10px; 
+  right: 10px;
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; /* Button padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit-button1 {
+  position: fixed;
+  bottom: 10px; 
+  right: 10px;
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; /* Button padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 0 auto; 
+  
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black; 
+  border-radius: 10px; 
+  margin-left: 20px;
+  padding: 5px; 
+  height: 350px; 
+  overflow: auto;
+}
+
+.flex-column2 {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black; 
+  border-radius: 10px;
+  margin-left: 60px;
+  padding: 10px; 
+  height: 350px; 
+  overflow: auto;
+}
+
+
+.flex-column2 .TL-cell {
+  margin-bottom: 5px; /* space between rows */
+}
+
+.flex-column2 .TL-rowCells {
+  margin-right: 5px; /* space between columns */
+}
+
+.small-image {
+  width: 50px;
+  height: 50px;
+}
+
+.fl-table2 img {
+  width: 50px; 
+  height: 50px; 
+}
+
+.fl-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.fl-table th, .fl-table td {
+  padding: 8px;
+  text-align: left;
+  margin: 5px; 
+}
+
+.fl-table th {
+  background-color: #bfbfbf;
+}
+
+
+.fl-table th:nth-child(1), .fl-table td:nth-child(1) {
+  background-color: #cccccc; /* Add a background color to the first column */
+}
+
+.fl-table th:nth-child(2), .fl-table td:nth-child(2) {
+  background-color: #d9d9d9; /* Add a background color to the second column */
+}
+
+.fl-table th:nth-child(3), .fl-table td:nth-child(3) {
+  background-color: #e6e6e6; /* Add a background color to the third column */
+}
+
+.fl-table th:nth-child(4), .fl-table td:nth-child(4) {
+  background-color: #f2f2f2; /* Add a background color to the fourth column */
+}
+
+.fl-table th:nth-child(5), .fl-table td:nth-child(5) {
+  background-color: #f2f2f2; /* Add a background color to the fifth column */
+}
+
+.fl-table th, .fl-table td {
+  padding: 8px; 
+  font-family: "inter-regular", Helvetica;
+}
+
+.flex-column2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column2:nth-child(odd) {
+  background-color: #f2f2f2; /* Add a background color to odd columns */
+  
+}
+
+.flex-column2:nth-child(even) {
+  background-color: #f2f2f2; /* Add a background color to even columns */
+}
+
+
+.fl-table2 th, .fl-table2 td {
+  padding: 8px; 
+  font-family: "inter-regular", Helvetica;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 150px));
+  grid-gap: 20px;
+  margin-left: 955px;
+  margin-top: -615px;
+ 
+  
+}
+
+.grid-item {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  
+}
+
+.grid-item h2 {
+  margin-top: 0;
+  font-size: 15px;
+  font-family: "inter-regular", Helvetica;
+}
+
+.grid-item p {
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-family: "inter-regular", Helvetica;
+}
+
+.buttonPro {
+  position: fixed;
+  bottom: 10px; 
+  right: 90px;
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; /* Button padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+.buttonPro:hover {
+  background-color: #45a049;
+}
+
